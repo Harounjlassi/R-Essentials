@@ -1,6 +1,8 @@
 import { EXAMPLES } from "../data.js";
 import { useState } from "react";
 import TabButton from "./TabButton.jsx";
+import Section from "./Section.jsx";
+import Tabs from "./Tabs.jsx";
 export default function Examples() {
       const [selectedTopic, setSelectedTopic] = useState();
       function handleSelect(selectedButton) {
@@ -9,28 +11,10 @@ export default function Examples() {
         console.log(selectedTopic);
       }
     return (
-           <section id="examples">
-          <h2>Examples</h2>
+           <Section title="Examples" id ="examples">
           {/* //menu : liste of buttons */}
-          <menu>
-            {/* this called components compositions */}
 
-            {/* App() runs → defines handleSelect.
-
-            <TabButton> is called with props.
-
-            TabButton() returns JSX with <button onClick={props.onSelect}>.
-
-            React renders the <button> and attaches the event listener.
-
-            User clicks → props.onSelect (the arrow function) executes.
-
-            Arrow function calls handleSelect('components').
-
-            handleSelect logs the message. ✅
-                          */}
-
-            <TabButton
+          <Tabs buttons={<>   <TabButton
               isSelected={selectedTopic === "components"}
               onSelect={() => handleSelect("components")}
             >
@@ -53,10 +37,8 @@ export default function Examples() {
               onSelect={() => handleSelect("state")}
             >
               State
-            </TabButton>
-          </menu>
-
-          {/** {!selectedTopic} mean undefined    */}
+            </TabButton></>}>
+             {/** {!selectedTopic} mean undefined    */}
           {!selectedTopic && <p>Please select a topic.</p>}
           {selectedTopic && (
             <div id="tab-content">
@@ -67,6 +49,28 @@ export default function Examples() {
               </pre>
             </div>
           )}
-        </section>
+            </Tabs>
+            {/* this called components compositions */}
+
+            {/* App() runs → defines handleSelect.
+
+            <TabButton> is called with props.
+
+            TabButton() returns JSX with <button onClick={props.onSelect}>.
+
+            React renders the <button> and attaches the event listener.
+
+            User clicks → props.onSelect (the arrow function) executes.
+
+            Arrow function calls handleSelect('components').
+
+            handleSelect logs the message. ✅
+                          */}
+
+         
+       
+
+         
+        </Section>
     );
 }

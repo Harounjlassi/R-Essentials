@@ -12,6 +12,10 @@ function App() {
       <Header />
       <main>
         <CoreConcepts />
+        {/* // now only the Exemlpes component is neing rendered not the full app
+        // because we split the app into multiple components
+        // each component is responsible for rendering a specific part of the UI
+        // this makes the code more modular and easier to maintain */}
         <Examples />
         <h2>Time to get started!</h2>
       </main>
