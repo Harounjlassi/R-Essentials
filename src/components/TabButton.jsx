@@ -15,6 +15,6 @@ export default function TabButton(props) {
         //so we don't add () to the function name
         //we can also use an arrow function to pass arguments to the event handler
         //onClick={() => handleClick(arg1, arg2)}
-        <li><button onClick={props.onSelect}>{props.children}</button></li>
+        <li><button className={props.isSelected ? "active" : ""} onClick={props.onSelect}>{props.children}</button></li>
     );
 }
