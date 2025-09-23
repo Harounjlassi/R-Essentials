@@ -13,8 +13,9 @@ export default function Examples() {
     return (
            <Section title="Examples" id ="examples">
           {/* //menu : liste of buttons */}
+          {/* if we want to use a build in component we have to use {} exp: {Section} */}
 
-          <Tabs buttons={<>   <TabButton
+          <Tabs ButtonsContainer="menu" buttons={<menu>   <TabButton
               isSelected={selectedTopic === "components"}
               onSelect={() => handleSelect("components")}
             >
@@ -37,7 +38,7 @@ export default function Examples() {
               onSelect={() => handleSelect("state")}
             >
               State
-            </TabButton></>}>
+            </TabButton></menu>}>
              {/** {!selectedTopic} mean undefined    */}
           {!selectedTopic && <p>Please select a topic.</p>}
           {selectedTopic && (
